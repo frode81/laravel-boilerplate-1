@@ -1,9 +1,9 @@
 <template>
   <div class="flex flex-col">
-    <div class="flex flex-row relative font-title" :style="`--current-color: var(--color-${currentColor});`">
+    <div class="relative flex flex-row font-title" :style="`--current-color: var(--color-${currentColor});`">
       <label
         v-if="label"
-        class="z-10 px-2 font-semibold text-sm absolute pointer-events-none bg-surface rounded-full transition-all transition-250"
+        class="absolute z-10 px-2 text-sm font-semibold rounded-full pointer-events-none bg-surface transition-all transition-250"
         :active="active"
         :class="labelClassObject"
         v-html="labelText"
@@ -11,7 +11,7 @@
       <scale-transition origin="center">
         <span
           v-show="canClear"
-          class="clear-button z-20 px-2 font-semibold text-sm absolute bg-surface rounded-full transition-all transition-250 cursor-pointer text-on-surface-muted hover:text-on-surface-high-emphasis"
+          class="absolute z-20 px-2 text-sm font-semibold rounded-full cursor-pointer clear-button bg-surface transition-all transition-250 text-on-surface-muted hover:text-on-surface-high-emphasis"
           :style="clearableStyleObject"
           @click="clear"
         >
@@ -45,8 +45,8 @@
       </template>
     </div>
     <scale-transition>
-      <div v-if="hasErrors" v-html="$_(errors[0])" class="text-error-high-emphasis text-xs ml-0 md:ml-4 mt-2" />
-      <div v-if="hint && !hasErrors" v-html="$_(hint)" class="text-on-surface-muted text-xs ml-0 md:ml-4 mt-2" />
+      <div v-if="hasErrors" v-html="$_(errors[0])" class="mt-2 ml-0 text-xs text-error-high-emphasis md:ml-4" />
+      <div v-if="hint && !hasErrors" v-html="$_(hint)" class="mt-2 ml-0 text-xs text-on-surface-muted md:ml-4" />
     </scale-transition>
   </div>
 </template>
@@ -169,10 +169,6 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
-::selection {
-  --current-color: var(--color-primary);
-  background: rgba(var(--current-color), var(--selection));
-}
 label {
   top: 0.775em;
   left: 0.5em;
