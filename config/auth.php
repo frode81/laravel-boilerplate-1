@@ -67,12 +67,12 @@ return [
     'providers' => [
         'users' => [
             'driver' => env('LDAP_ENABLED', false) ? 'ldap' : 'eloquent',
-            'model'  => App\User::class,
+            'model'  => User::class,
         ],
 
         // 'users' => [
         //     'driver' => 'eloquent',
-        //     'model'  => App\User::class,
+        //     'model'  => App\Models\User::class,
         // ],
 
         // 'users' => [

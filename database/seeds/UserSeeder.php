@@ -1,7 +1,7 @@
 <?php
 
 use App\Models\Role;
-use App\User;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 /**
